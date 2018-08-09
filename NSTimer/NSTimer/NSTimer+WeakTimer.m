@@ -18,13 +18,14 @@
 
 @implementation TimerWeakObject
 -(void)fire:(NSTimer *)timer{
-    
+    NSLog(@"%s---%@",__func__,[NSThread currentThread]);
     if (self.target) {
         [self.target performSelector:self.selector withObject:timer.userInfo];
     } else {
         
         [self.timer invalidate];
         self.timer = nil;
+        CFRunLoopStop(CFRunLoopGetCurrent());
         
     }
 }
@@ -38,8 +39,14 @@
     TimerWeakObject * timer = [TimerWeakObject new];
     timer.target = aTarget;
     timer.selector = aSelector;
-    timer.timer = [NSTimer scheduledTimerWithTimeInterval:ti target:timer selector:@selector(fire:) userInfo:userInfo repeats:yesOrNo];
-    return timer.timer;
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        timer.timer = [NSTimer scheduledTimerWithTimeInterval:ti target:timer selector:@selector(fire:) userInfo:userInfo repeats:yesOrNo];
+        CFRunLoopRun();
+//        return timer.timer;
+    });
+    
+    return nil;
+ 
     
     
 }

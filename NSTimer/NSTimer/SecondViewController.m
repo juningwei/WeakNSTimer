@@ -23,6 +23,8 @@
 }
 
 - (void)func{
+    NSLog(@"%s---%@",__func__,[NSThread currentThread]);
+
     NSLog(@"123");
     
 }

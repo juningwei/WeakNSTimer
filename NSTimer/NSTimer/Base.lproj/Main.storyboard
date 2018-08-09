@@ -39,7 +39,19 @@
                     <view key="view" contentMode="scaleToFill" id="0lh-co-7XX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zy8-Ao-Rwx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zy8-Ao-Rwx" firstAttribute="leading" secondItem="UF5-y9-7Ms" secondAttribute="leading" id="Jn1-0E-dnq"/>
+                            <constraint firstItem="UF5-y9-7Ms" firstAttribute="trailing" secondItem="Zy8-Ao-Rwx" secondAttribute="trailing" id="NI5-WX-CDn"/>
+                            <constraint firstItem="Zy8-Ao-Rwx" firstAttribute="top" secondItem="UF5-y9-7Ms" secondAttribute="top" id="WHg-bz-P10"/>
+                            <constraint firstItem="UF5-y9-7Ms" firstAttribute="bottom" secondItem="Zy8-Ao-Rwx" secondAttribute="bottom" id="hww-S4-Vho"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UF5-y9-7Ms"/>
                     </view>
                     <navigationItem key="navigationItem" id="LWu-ed-stn"/>
